@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <springProfile name="debug">
+        <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
+        <conversionRule conversionWord="wex"
+                        converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
+        <conversionRule conversionWord="wEx"
+                        converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
+
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <Pattern>
+                    <pattern>
+                        %clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(%X{version:-00} %X{traceId:-} %X{spanId:-} %X{parentId:-} %X{spanExportable:-}) %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %m%n%wEx
+                    </pattern>
+                </Pattern>
+            </layout>
+        </appender>
+
+    </springProfile>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>
